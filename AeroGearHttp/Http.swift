@@ -517,11 +517,9 @@ public class Http {
                 completionHandler?(nil, error)
                 return
             }
-            
-            if (data != nil) {
-                var responseObject: AnyObject? = self.responseSerializer?.response(data!)
-                completionHandler?(responseObject, nil)
-            }
+
+            var responseObject: AnyObject? = self.responseSerializer?.response(data!)
+            completionHandler?(responseObject, nil)
         }
     }
     
