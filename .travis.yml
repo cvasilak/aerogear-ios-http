@@ -8,6 +8,8 @@ before_install:
     - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
 
 script:
+    # we use 'xcodebuild' instead of travis-provided 'xctool', cause tests rely the presence of an iOS emulator for security services to be available.
+    # see https://github.com/facebook/xctool/issues/454#issuecomment-65835905
     - set -o pipefail && xcodebuild -workspace AeroGearHttp.xcworkspace -scheme AeroGearHttp -sdk iphonesimulator -configuration Release clean test
 
 notifications:
